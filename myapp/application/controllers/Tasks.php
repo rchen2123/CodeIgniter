@@ -68,9 +68,8 @@ class Tasks extends CI_Controller
         }
     }
 
-    public function delete($task_id)
+    public function delete($task_id, $project_id)
     {
-        $project_id = $this->task_model->get_task_project_id($task_id);
         $this->task_model->delete_task($task_id);
         $this->session->set_flashdata('task_deleted', 'Your Task has been deleted');
         redirect("projects/display/". $project_id);
